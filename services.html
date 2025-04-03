@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Inkonjane Project Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #003366;
+            --gold: #FFD700;
+            --light: #F8F9FA;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('images/3.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .services {
+            padding: 100px 20px;
+            text-align: center;
+            background: var(--light);
+        }
+        
+        .section-title {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+        
+        .service-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        
+        .mission-values {
+            padding: 100px 20px;
+            background: white;
+            text-align: center;
+        }
+        
+        .mission-statement {
+            max-width: 900px;
+            margin: 30px auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        .values-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin: 50px 0;
+            text-align: left;
+        }
+        
+        .values-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .values-column h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .values-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .values-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .values-list li:before {
+            content: '✓';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .safety-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        
+        .safety-section h3 {
+            color: var(--secondary);
+            margin-top: 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .safety-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        footer {
+            background: linear-gradient(to right, #002244, #003366);
+            color: #f8f9fa;
+        }
+        
+        .footer-top {
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        
+        .footer-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--gold), #ff8c00);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-info {
+            max-width: 340px;
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-desc {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #b4c9e4;
+        }
+        
+        .footer-links-column h3,
+        .footer-newsletter h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links-column h3::after,
+        .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #b4c9e4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover::before {
+            transform: translateX(5px);
+        }
+        
+        .footer-newsletter p {
+            color: #b4c9e4;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: #b4c9e4;
+        }
+        
+        .newsletter-form button {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #e6c200;
+        }
+        
+        .contact-info-footer p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #b4c9e4;
+        }
+        
+        .contact-info-footer i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .copyright {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-bottom-links a {
+            color: #b4c9e4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Inkonjane <span>Project Solutions</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <h1>Our Services</h1>
+    </section>
+    
+    <section class="services">
+        <div class="container">
+            <p>We offer a comprehensive range of construction solutions tailored to your needs.</p>
+            
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/1.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Residential Construction</h3>
+                        <p>Custom homes built with precision and care, designed for modern living.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/2.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Commercial Projects</h3>
+                        <p>Office buildings, retail spaces, and industrial complexes.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/3.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Renovations & Remodeling</h3>
+                        <p>Transform your space with our expert renovation services.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/4.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Infrastructure Development</h3>
+                        <p>Roads, bridges, and public facilities built to the highest standards.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/5.jpeg');"></div>
+                    <div class="service-content">
+                        <h3>Housing Development</h3>
+                        <p>Affordable housing projects that create sustainable communities.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/7.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Project Management</h3>
+                        <p>Professional oversight ensuring timely and on-budget project completion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mission-values">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <p class="mission-statement">Our mission is to operate as the safest, most efficient and cost-effective contracting company – meeting or exceeding the requirements of our clients, promoting the well-being of our environment and achieving prosperity for our company, its staff and shareholders.</p>
+            
+            <div class="values-container">
+                <div class="values-column">
+                    <h3>Our Core Values</h3>
+                    <ul class="values-list">
+                        <li>Provide the best possible service to our clients</li>
+                        <li>Provide equal opportunity employment</li>
+                        <li>Focus on our core business of construction</li>
+                        <li>Strive for excellence</li>
+                        <li>Provide innovative concepts and solutions</li>
+                        <li>Carry out our duties with the highest degree of integrity</li>
+                        <li>Act professionally</li>
+                    </ul>
+                </div>
+                <div class="values-column">
+                    <h3>Our Commitment</h3>
+                    <ul class="values-list">
+                        <li>Place safety and equality before profits</li>
+                        <li>Employ only well coordinated teams and subcontracting</li>
+                        <li>Take a strong stance against under performance</li>
+                        <li>Empower previously disadvantaged individuals</li>
+                        <li>Ensure client satisfaction</li>
+                        <li>Not tender unless we can deliver of our best</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="safety-section">
+                <h3>Safety First</h3>
+                <p>At Inkonjane the safety of our employees is non-negotiable. We believe that working safely must be a way of life. This is demonstrated by numerous milestones being achieved on various projects.</p>
+                <p>We are committed to ensuring that our operations comply with the Occupational Health and Safety Act, the Compensation for Occupational injuries and Diseases Act, Environmental legislation.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-info">
+                        <a href="index.html" class="footer-logo">Inkonjane Project Solutions</a>
+                        <p class="footer-desc">Building exceptional construction solutions across South Africa since 2000. A 100% black empowered and female-owned enterprise committed to quality, integrity and excellence.</p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>Our Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="services.html#residential">Residential Construction</a></li>
+                            <li><a href="services.html#commercial">Commercial Projects</a></li>
+                            <li><a href="services.html#renovations">Renovations</a></li>
+                            <li><a href="services.html#infrastructure">Infrastructure</a></li>
+                            <li><a href="services.html#housing">Housing Development</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h3>Stay Updated</h3>
+                        <p>Subscribe to our newsletter for the latest projects and construction insights.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-phone"></i> +27 71 631 1221</p>
+                            <p><i class="fas fa-envelope"></i> inkonjaneprojectsolutions@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 Inkonjane Project Solutions. All Rights Reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 

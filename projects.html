@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Inkonjane Project Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --secondary: #003366;
+            --gold: #FFD700;
+            --light: #F8F9FA;
+            --dark: #212529;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('images/2.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .projects {
+            padding: 100px 20px;
+            text-align: center;
+            background: white;
+        }
+        
+        .section-title {
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+        
+        .project-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-overlay h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .projects-list-section {
+            margin-top: 80px;
+            text-align: left;
+        }
+        
+        .contracts-table {
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contract-row {
+            display: flex;
+            padding: 15px 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contract-row.header {
+            background: var(--secondary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .contract-row.total {
+            background: #f5f5f5;
+            font-weight: bold;
+            border-top: 2px solid var(--secondary);
+        }
+        
+        .contract-name {
+            flex: 3;
+        }
+        
+        .contract-value {
+            flex: 1;
+            text-align: right;
+            font-weight: 500;
+        }
+        
+        .clients-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+        
+        .clients-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .clients-list li {
+            background: var(--light);
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-weight: 500;
+            color: var(--secondary);
+            min-width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .clients-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #002244, #003366);
+            color: #f8f9fa;
+        }
+        
+        .footer-top {
+            padding: 60px 0 40px;
+            position: relative;
+        }
+        
+        .footer-top::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--gold), #ff8c00);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-info {
+            max-width: 340px;
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .footer-desc {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #b4c9e4;
+        }
+        
+        .footer-links-column h3,
+        .footer-newsletter h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links-column h3::after,
+        .footer-newsletter h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #b4c9e4;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover::before {
+            transform: translateX(5px);
+        }
+        
+        .footer-newsletter p {
+            color: #b4c9e4;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+        
+        .newsletter-form input::placeholder {
+            color: #b4c9e4;
+        }
+        
+        .newsletter-form button {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: #e6c200;
+        }
+        
+        .contact-info-footer p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            color: #b4c9e4;
+        }
+        
+        .contact-info-footer i {
+            color: var(--gold);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .copyright {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-bottom-links a {
+            color: #b4c9e4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px 0;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Inkonjane <span>Project Solutions</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="page-header">
+        <h1>Our Projects</h1>
+    </section>
+    
+    <section class="projects">
+        <div class="container">
+            <p>Explore some of our recently completed projects.</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="images/1.jpg" alt="Residential Project" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Residential Project</h3>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="images/2.jpg" alt="Commercial Project" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Commercial Office</h3>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="images/3.jpg" alt="Renovation Project" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Renovation Project</h3>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="images/4.jpg" alt="Infrastructure Project" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Infrastructure Project</h3>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="images/5.jpeg" alt="Housing Development" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Housing Development</h3>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="images/7.jpg" alt="Municipal Project" class="project-img">
+                    <div class="project-overlay">
+                        <h3>Municipal Project</h3>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-list-section">
+                <h2 class="section-title">Current Contracts</h2>
+                <div class="contracts-table">
+                    <div class="contract-row header">
+                        <div class="contract-name">Project Name</div>
+                        <div class="contract-value">Value</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Barnard Close</div>
+                        <div class="contract-value">R 1,000,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Lower Thorn wood</div>
+                        <div class="contract-value">R 738,862</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Sifunimfundo P. Sch.</div>
+                        <div class="contract-value">R 140,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">eThekwini School</div>
+                        <div class="contract-value">R 200,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Block T</div>
+                        <div class="contract-value">R 1,290,195</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">New Glebe Hostel</div>
+                        <div class="contract-value">R 650,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Block 54</div>
+                        <div class="contract-value">R 1,000,000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="projects-list-section">
+                <h2 class="section-title">Notable Projects</h2>
+                <p>Inkonjane Project Solutions cc. has completed some of the following contracts since its inception in 2000. All contracts were completed in earnestly under DKS Holdings (Pty) Ltd as a subcontractor. The company performance was further acknowledged by the Standard Bank Growth awards that was confer to DKS Holdings where it came first in 2005 and 2006 respectively in KZN.</p>
+                
+                <div class="contracts-table">
+                    <div class="contract-row header">
+                        <div class="contract-name">Project Name</div>
+                        <div class="contract-value">Value</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Greylands Housing Projects (eThekwini Municipality)</div>
+                        <div class="contract-value">R 969,250.17</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Trenance Park Phase 5 Housing Project (eThekwini Municipality)</div>
+                        <div class="contract-value">R 585,795.46</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Glebelands Hostel – Ablution Upgrade (eThekwini Municipality)</div>
+                        <div class="contract-value">R 300,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Glebelands Hostels Block 54/56 (eThekwini Municipality)</div>
+                        <div class="contract-value">R 600,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Glebelands Hostels New Housing Accommodation (eThekwini Municipality)</div>
+                        <div class="contract-value">R 240,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">New Accommodation Philani Valley (eThekwini Municipality)</div>
+                        <div class="contract-value">R 1,760,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Folweni Housing Projects Phase 1 (eThekwini Municipality)</div>
+                        <div class="contract-value">R 1,099,000</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Mpola Housing Phase (eThekwini Municipality)</div>
+                        <div class="contract-value">R 500,000</div>
+                    </div>
+                    <div class="contract-row total">
+                        <div class="contract-name">TOTAL</div>
+                        <div class="contract-value">R 6,054,045.63</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clients-section">
+                <h2 class="section-title">Notable Clients</h2>
+                <ul class="clients-list">
+                    <li>eThekwini municipality</li>
+                    <li>MB Investment Holdings</li>
+                    <li>DKS Holdings (Pty) Ltd.</li>
+                    <li>Departments of Works</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-info">
+                        <a href="index.html" class="footer-logo">Inkonjane Project Solutions</a>
+                        <p class="footer-desc">Building exceptional construction solutions across South Africa since 2000. A 100% black empowered and female-owned enterprise committed to quality, integrity and excellence.</p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3>Our Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="services.html#residential">Residential Construction</a></li>
+                            <li><a href="services.html#commercial">Commercial Projects</a></li>
+                            <li><a href="services.html#renovations">Renovations</a></li>
+                            <li><a href="services.html#infrastructure">Infrastructure</a></li>
+                            <li><a href="services.html#housing">Housing Development</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-newsletter">
+                        <h3>Stay Updated</h3>
+                        <p>Subscribe to our newsletter for the latest projects and construction insights.</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your Email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                        <div class="contact-info-footer">
+                            <p><i class="fas fa-phone"></i> +27 71 631 1221</p>
+                            <p><i class="fas fa-envelope"></i> inkonjaneprojectsolutions@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 Inkonjane Project Solutions. All Rights Reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html> 
