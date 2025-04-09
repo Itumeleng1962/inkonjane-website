@@ -182,39 +182,67 @@
             gap: 40px;
             margin: 50px 0;
             text-align: left;
+            background: var(--light);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .values-column {
             flex: 1;
             min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .values-column:hover {
+            transform: translateY(-5px);
         }
         
         .values-column h3 {
             color: var(--secondary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
             display: inline-block;
+            font-size: 1.5rem;
+            padding-bottom: 10px;
         }
         
         .values-column h3:after {
             content: '';
             position: absolute;
             width: 50%;
-            height: 2px;
+            height: 3px;
             background: var(--gold);
-            bottom: -5px;
+            bottom: 0;
             left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .values-column:hover h3:after {
+            width: 100%;
         }
         
         .values-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .values-list li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             position: relative;
-            padding-left: 30px;
+            padding-left: 35px;
+            line-height: 1.6;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+        
+        .values-list li:hover {
+            color: var(--secondary);
         }
         
         .values-list li:before {
@@ -223,6 +251,12 @@
             position: absolute;
             left: 0;
             font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .values-list li:hover:before {
+            transform: scale(1.2);
         }
         
         .safety-section {
@@ -496,6 +530,43 @@
                 font-size: 2.5rem;
             }
         }
+        
+        /* Projects List Section Styles */
+        .projects-list-section {
+            margin-top: 80px;
+            text-align: left;
+        }
+        
+        .contracts-table {
+            margin: 30px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contract-row {
+            display: flex;
+            padding: 15px 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contract-row.header {
+            background: var(--secondary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .contract-name {
+            flex: 3;
+            font-weight: 500;
+        }
+        
+        .contract-value {
+            flex: 1;
+            text-align: right;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -573,12 +644,94 @@
                         <p>Professional oversight ensuring timely and on-budget project completion.</p>
                     </div>
                 </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/IMG-20250405-WA0016.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Water Infrastructure Upgrade</h3>
+                        <p>Comprehensive water infrastructure development and upgrades for improved community access and sustainable water management systems.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/IMG-20250405-WA0017.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Sewer and Recirculation System</h3>
+                        <p>Advanced sewer systems and water recirculation solutions for efficient waste management and water conservation.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/IMG-20250405-WA0018.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Storm Water and Road Construction</h3>
+                        <p>Integrated storm water management systems and road construction projects for improved infrastructure and flood prevention.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('images/IMG-20250405-WA0014.jpg');"></div>
+                    <div class="service-content">
+                        <h3>Renovation and Remodeling Low Cost Housing</h3>
+                        <p>Affordable housing renovation and remodeling services focused on improving living conditions while maintaining cost-effectiveness.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     
     <section class="mission-values">
         <div class="container">
+            <h2 class="section-title">Our Project Portfolio</h2>
+            
+            <div class="projects-list-section">
+                <h2 class="section-title">Building Services</h2>
+                <div class="contracts-table">
+                    <div class="contract-row header">
+                        <div class="contract-name">Project</div>
+                        <div class="contract-value">Service Provider</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Barnard Close</div>
+                        <div class="contract-value">MB Investment Client</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Glebelands Hostel</div>
+                        <div class="contract-value">eThekwini Municipality</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Lower Thorns</div>
+                        <div class="contract-value">eThekwini Municipality</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Sifunifundo Secondary School</div>
+                        <div class="contract-value">IThala Development Investment</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-list-section">
+                <h2 class="section-title">Civil Works</h2>
+                <div class="contracts-table">
+                    <div class="contract-row header">
+                        <div class="contract-name">Project</div>
+                        <div class="contract-value">Service Provider</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Water Reticulation Infrastructure</div>
+                        <div class="contract-value">eThekwini Municipality</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Construction of Water Inlet</div>
+                        <div class="contract-value">eThekwini Municipality</div>
+                    </div>
+                    <div class="contract-row">
+                        <div class="contract-name">Mpumalanga F Pump Station</div>
+                        <div class="contract-value">Africon Group</div>
+                    </div>
+                </div>
+            </div>
+            
             <h2 class="section-title">Our Mission</h2>
             <p class="mission-statement">Our mission is to operate as the safest, most efficient and cost-effective contracting company – meeting or exceeding the requirements of our clients, promoting the well-being of our environment and achieving prosperity for our company, its staff and shareholders.</p>
             

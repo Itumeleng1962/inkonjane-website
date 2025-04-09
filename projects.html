@@ -249,6 +249,44 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
+        /* Project Showcase Styles */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .showcase-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .showcase-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .showcase-content {
+            padding: 25px;
+        }
+        
+        .showcase-description {
+            color: var(--dark);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
         /* Footer */
         footer {
             background: linear-gradient(to right, #002244, #003366);
@@ -522,54 +560,98 @@
     
     <section class="projects">
         <div class="container">
-            <p>Explore some of our recently completed projects.</p>
+            <h2 class="section-title">Project Showcase</h2>
+            <p>Explore our portfolio of completed and ongoing construction projects.</p>
             
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="images/1.jpg" alt="Residential Project" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Residential Project</h3>
-                        <a href="#" class="btn">View Project</a>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/1.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Modern residential development with sustainable design features.</p>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <img src="images/2.jpg" alt="Commercial Project" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Commercial Office</h3>
-                        <a href="#" class="btn">View Project</a>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/2.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">State-of-the-art commercial office space with modern amenities.</p>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <img src="images/3.jpg" alt="Renovation Project" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Renovation Project</h3>
-                        <a href="#" class="btn">View Project</a>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/3.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Comprehensive renovation project with modern finishes.</p>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <img src="images/4.jpg" alt="Infrastructure Project" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Infrastructure Project</h3>
-                        <a href="#" class="btn">View Project</a>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/4.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Large-scale infrastructure development project.</p>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <img src="images/5.jpeg" alt="Housing Development" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Housing Development</h3>
-                        <a href="#" class="btn">View Project</a>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/5.jpeg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Community housing development with sustainable living spaces.</p>
                     </div>
                 </div>
                 
-                <div class="project-card">
-                    <img src="images/7.jpg" alt="Municipal Project" class="project-img">
-                    <div class="project-overlay">
-                        <h3>Municipal Project</h3>
-                        <a href="#" class="btn">View Project</a>
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/7.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Municipal infrastructure project with modern facilities.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0011.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">A modern residential development featuring state-of-the-art amenities and sustainable design.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0013.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Comprehensive renovation and modernization of student accommodation facilities.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0014.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Community housing development with focus on sustainable living spaces.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0015.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">State-of-the-art educational facility with modern learning environments.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0016.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Comprehensive water infrastructure development for improved community access.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0017.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Strategic water management infrastructure project.</p>
+                    </div>
+                </div>
+                
+                <div class="showcase-card">
+                    <div class="showcase-img" style="background-image: url('images/IMG-20250405-WA0018.jpg');"></div>
+                    <div class="showcase-content">
+                        <p class="showcase-description">Advanced water pumping facility with modern control systems.</p>
                     </div>
                 </div>
             </div>
@@ -579,35 +661,35 @@
                 <div class="contracts-table">
                     <div class="contract-row header">
                         <div class="contract-name">Project Name</div>
-                        <div class="contract-value">Value</div>
+                        <div class="contract-value">Client</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">Barnard Close</div>
-                        <div class="contract-value">R 1,000,000</div>
+                        <div class="contract-value">MB Investment Client</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">Lower Thorn wood</div>
-                        <div class="contract-value">R 738,862</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">Sifunimfundo P. Sch.</div>
-                        <div class="contract-value">R 140,000</div>
+                        <div class="contract-value">IThala Development Investment</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">eThekwini School</div>
-                        <div class="contract-value">R 200,000</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">Block T</div>
-                        <div class="contract-value">R 1,290,195</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">New Glebe Hostel</div>
-                        <div class="contract-value">R 650,000</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
                         <div class="contract-name">Block 54</div>
-                        <div class="contract-value">R 1,000,000</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                 </div>
             </div>
@@ -619,43 +701,39 @@
                 <div class="contracts-table">
                     <div class="contract-row header">
                         <div class="contract-name">Project Name</div>
-                        <div class="contract-value">Value</div>
+                        <div class="contract-value">Client</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Greylands Housing Projects (eThekwini Municipality)</div>
-                        <div class="contract-value">R 969,250.17</div>
+                        <div class="contract-name">Greylands Housing Projects</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Trenance Park Phase 5 Housing Project (eThekwini Municipality)</div>
-                        <div class="contract-value">R 585,795.46</div>
+                        <div class="contract-name">Trenance Park Phase 5 Housing Project</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Glebelands Hostel – Ablution Upgrade (eThekwini Municipality)</div>
-                        <div class="contract-value">R 300,000</div>
+                        <div class="contract-name">Glebelands Hostel – Ablution Upgrade</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Glebelands Hostels Block 54/56 (eThekwini Municipality)</div>
-                        <div class="contract-value">R 600,000</div>
+                        <div class="contract-name">Glebelands Hostels Block 54/56</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Glebelands Hostels New Housing Accommodation (eThekwini Municipality)</div>
-                        <div class="contract-value">R 240,000</div>
+                        <div class="contract-name">Glebelands Hostels New Housing Accommodation</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">New Accommodation Philani Valley (eThekwini Municipality)</div>
-                        <div class="contract-value">R 1,760,000</div>
+                        <div class="contract-name">New Accommodation Philani Valley</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Folweni Housing Projects Phase 1 (eThekwini Municipality)</div>
-                        <div class="contract-value">R 1,099,000</div>
+                        <div class="contract-name">Folweni Housing Projects Phase 1</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                     <div class="contract-row">
-                        <div class="contract-name">Mpola Housing Phase (eThekwini Municipality)</div>
-                        <div class="contract-value">R 500,000</div>
-                    </div>
-                    <div class="contract-row total">
-                        <div class="contract-name">TOTAL</div>
-                        <div class="contract-value">R 6,054,045.63</div>
+                        <div class="contract-name">Mpola Housing Phase</div>
+                        <div class="contract-value">eThekwini Municipality</div>
                     </div>
                 </div>
             </div>
